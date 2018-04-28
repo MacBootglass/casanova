@@ -1,2 +1,2 @@
 # casanova
-Yes, another chat application
+Yes, another encrypted chat application

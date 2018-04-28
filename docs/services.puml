@@ -1,0 +1,56 @@
+@startuml
+  object TokenManagerModule #aaa {
+    addApprovedToken(Token): void
+    isValidToken(Token): boolean
+    removeApproveToken(Token): void
+  }
+
+  object EncryptionModule #aaa {
+    encrypt(String): String
+    decrypt(String): String
+  }
+
+  object AuthenticationService {
+    signIn(Credential): Token
+    signUp(Credential): Token
+    signOut(Token): void
+    getTokenExpiration(Token): Date
+  }
+
+  object UserService {
+    createUser(Credential, User): Token
+    getUsers(Token): User[]
+    getUser(Token, email): User
+    requestContact(Token, email): void
+    acceptContact(Token, email): void
+    removeContact(Token, email): void
+  }
+
+  object GroupService {
+    createGroup(Token, Group): Group
+    updateGroup(Token, Group): Group
+    addAdministrator(Token, name, email): void
+    removeAdministrator(Token, name, email): void
+    getAdministrators(Token): User[]
+    getUsers(Token): User[]
+    createRoom(Token, Room): void
+    updateRoom(Token, Room): void
+    removeRoom(Token, Room): void
+  }
+
+  object MessagingService {
+    send(Token, User, User / Room, Message): void
+    get(Token, User, User / Room): Message[]
+    _createConversation(User, User / Room): void
+  }
+
+  AuthenticationService - UserService
+  AuthenticationService - GroupService
+  AuthenticationService - MessagingService
+  MessagingService -- UserService
+  TokenManagerModule -- UserService
+  TokenManagerModule -- GroupService
+  TokenManagerModule -- MessagingService
+  EncryptionModule -- AuthenticationService
+  EncryptionModule -- MessagingService
+@enduml

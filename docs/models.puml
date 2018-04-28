@@ -1,0 +1,67 @@
+@startuml
+  object Credential {
+    email: String #unique
+    password: HashedString
+    token: Token
+  }
+
+  object Token {
+    value: String #unique
+    expirationDate: Date
+  }
+
+  object User {
+    email: String #unique
+    username: String
+    dateOfBirth: Date
+    profilePicture: String
+    contacts: User
+    conversations: Conversation[]
+    creationDate: Date
+  }
+
+  object Conversation {
+    key: HashedString
+    recipient: Room OR User
+  }
+
+  object ContactRequest {
+    from: User
+    to: User
+    creationDate: Date
+  }
+
+  object Group {
+    name: String
+    isPrivate: Boolean
+    administrators: User[]
+    users: User[]
+    rooms: Room[]
+    creationDate: Date
+  }
+
+  object Room {
+    name: String
+    isPrivate: Boolean
+    users: User[]
+    creationDate: Date
+  }
+
+  object Message {
+    author: User
+    recipient: Room OR User
+    text: HashedString
+    creationDate: Date
+  }
+
+  User *-- Credential
+  User *-- Conversation
+  Credential *- Token
+  Group *-- Room
+  Group o- User
+  Room o-- User
+  User *- Message
+  Room *- Message
+  ContactRequest o- User
+  User o- User
+@enduml
