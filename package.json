@@ -1,0 +1,18 @@
+{
+  "name": "casanova",
+  "version": "0.0.1",
+  "description": "Encrypted chat application",
+  "main": "index.js",
+  "repository": "https://github.com/MacBootglass/casanova.git",
+  "author": "Thibault Théologien <thibault.theologien@insa-rouen.fr>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint -c .eslintrc.yml *.js --quiet"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  },
+  "dependencies": {}
+}
