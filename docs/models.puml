@@ -54,6 +54,18 @@
     creationDate: Date
   }
 
+  enum LogStatus {
+    INFO
+    ERROR
+  }
+
+  object Log {
+    status: LogStatus
+    service: String
+    text: String
+    creationDate: Date
+  }
+
   User *-- Credential
   User *-- Conversation
   Credential *- Token
@@ -64,4 +76,5 @@
   Room *- Message
   ContactRequest o- User
   User o- User
+  Log o- LogStatus
 @enduml

@@ -44,6 +44,15 @@
     _createConversation(User, User / Room): void
   }
 
+  object LoggingService {
+    addLog(Log): void
+    getLogs(service, status): Logs
+  }
+
+  LoggingService --- UserService
+  LoggingService --- GroupService
+  LoggingService --- MessagingService
+  LoggingService --- AuthenticationService
   AuthenticationService - UserService
   AuthenticationService - GroupService
   AuthenticationService - MessagingService
