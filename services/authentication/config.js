@@ -11,4 +11,5 @@ module.exports = {
     table: ENV.AUTHENTICATION_DATABASE_TABLE || 'authentication',
   },
   allowGraphiql: ENV.AUTHENTICATION_GRAPHIQL || true,
+  tokenLifeTime: ENV.AUTHENTICATION_TOKEN_LIFE_TIME || '24', // in hours
 };

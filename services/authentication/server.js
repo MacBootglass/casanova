@@ -3,6 +3,7 @@ const graphqlHTTP = require('express-graphql');
 const mongoose = require('mongoose');
 
 const schema = require('./schema');
+const models = require('./models');
 const {
   allowGraphiql,
   service,
@@ -13,7 +14,10 @@ const {
 const databaseUrl = `mongodb://${database.host}:${database.port}/${database.table}`;
 mongoose
   .connect(databaseUrl)
-  .then(() => console.log(`Service ${service.name} is successfully connected to the database ${databaseUrl}`))
+  .then(() => {
+    console.log(`Service ${service.name} is successfully connected to the database ${databaseUrl}`);
+    models();
+  })
   .catch(() => console.error(`Service ${service.name} can't reach the database ${databaseUrl}`));
 
 // Init express server with graphql middleware
