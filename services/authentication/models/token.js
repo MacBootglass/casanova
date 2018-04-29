@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dayjs = require('dayjs');
 const uuid = require('uuid/v4');
-const { tokenLifeTime } = require('../config');
+const { tokenLifeTime } = require('../config/env');
 
 module.exports = mongoose.Schema({
   value: {
