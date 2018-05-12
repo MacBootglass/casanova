@@ -26,6 +26,15 @@ const signIn = (_, { email, password }) =>
     return credential.save();
   }).then(credential => credential.token);
 
+const signOut = (_, { email, password }) =>
+  Credential.findOne({
+    email,
+    password,
+  }).then(credential => {
+    credential.set({ token: { expirationDate: new Date() } });
+    return credential.save();
+  }).then(credential => credential.token);
+
 const tokenType = new GraphQLObjectType({
   name: 'Token',
   fields: {
@@ -59,6 +68,14 @@ const queryType = new GraphQLObjectType({
         password: { type: GraphQLString },
       },
       resolve: signIn,
+    },
+    signOut: {
+      type: tokenType,
+      args: {
+        email: { type: GraphQLString },
+        password: { type: GraphQLString },
+      },
+      resolve: signOut,
     },
   },
 });
