@@ -6,7 +6,7 @@ const _exports = () => ({
   schema: credential,
 });
 
-const credential = mongoose.Schema({
+const credential = new mongoose.Schema({
   email: {
     type: String,
     index: {
@@ -19,8 +19,13 @@ const credential = mongoose.Schema({
     type: String,
     required: true,
   },
+  created: {
+    type: Date,
+    default: () => Date.now(),
+  },
   token: {
     type: token,
+    default: () => ({}),
   },
 });
 

@@ -5,16 +5,17 @@ const { tokenLifeTime } = require('../config/env');
 
 const _exports = () => ({
   schema: token,
+  model: mongoose.model('Token', token),
 });
 
-const token = mongoose.Schema({
+const token = new mongoose.Schema({
   value: {
     type: String,
-    default: uuid(),
+    default: () => uuid(),
   },
   expirationDate: {
-    type: String,
-    default: dayjs().add(tokenLifeTime, 'hour'),
+    type: Date,
+    default: () => dayjs().add(tokenLifeTime, 'hour').toDate(),
   }
 });
 

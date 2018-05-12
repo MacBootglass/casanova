@@ -1,4 +1,5 @@
 const { model: Credential } = require('../models/credential');
+
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -14,21 +15,22 @@ const signUp = (_, { email, password }) =>
   Credential.create({
     email,
     password,
-  });
+  }).then(credential => credential.token);
+
+const signIn = (_, { email, password }) =>
+  Credential.findOne({
+    email,
+    password,
+  }).then(credential => {
+    credential.set({ token: {} });
+    return credential.save();
+  }).then(credential => credential.token);
 
 const tokenType = new GraphQLObjectType({
   name: 'Token',
   fields: {
     value: { type: GraphQLString },
     expirationDate: { type: GraphQLString },
-  },
-});
-
-const credentialType = new GraphQLObjectType({
-  name: 'Credential',
-  fields: {
-    email: { type: GraphQLString },
-    token: { type: tokenType },
   },
 });
 
@@ -43,13 +45,21 @@ const queryType = new GraphQLObjectType({
       resolve: resolveToken,
     },
     signUp: {
-      type: credentialType,
+      type: tokenType,
       args: {
         email: { type: GraphQLString },
         password: { type: GraphQLString },
       },
       resolve: signUp,
-    }
+    },
+    signIn: {
+      type: tokenType,
+      args: {
+        email: { type: GraphQLString },
+        password: { type: GraphQLString },
+      },
+      resolve: signIn,
+    },
   },
 });
 
