@@ -1,17 +1,15 @@
-const mongoose = require('mongoose');
+const { model: Credential } = require('../models/credential');
 const {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
 } = require('graphql');
 
-const CredentialModel = mongoose.model('Credential');
-
 const resolveToken = (_, { value }) => new Promise((resolve, reject) =>
-  CredentialModel.findOne({ token: { value } }).then(resolve).catch(reject));
+  Credential.findOne({ token: { value } }).then(resolve).catch(reject));
 
 const signUp = (_, { email, password }) => new Promise((resolve, reject) =>
-  CredentialModel.create({
+  Credential.create({
     email,
     password,
   }).then(resolve).catch((reject)));

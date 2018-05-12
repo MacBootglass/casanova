@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-const credential = require('./credential');
+const { model: credential } = require('./credential');
 
-module.exports = () => {
-  mongoose.model('Credential', credential);
-};
+module.exports = () => ({
+  credential
+});

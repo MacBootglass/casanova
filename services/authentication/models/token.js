@@ -3,7 +3,11 @@ const dayjs = require('dayjs');
 const uuid = require('uuid/v4');
 const { tokenLifeTime } = require('../config/env');
 
-module.exports = mongoose.Schema({
+const _exports = () => ({
+  schema: token,
+});
+
+const token = mongoose.Schema({
   value: {
     type: String,
     default: uuid(),
@@ -13,3 +17,5 @@ module.exports = mongoose.Schema({
     default: dayjs().add(tokenLifeTime, 'hour'),
   }
 });
+
+module.exports = _exports();

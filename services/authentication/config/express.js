@@ -9,6 +9,7 @@ module.exports = () => {
   const schema = require('../schema');
   const graphqlEndpoint = '/graphql';
   const app = express();
+
   app.use(graphqlEndpoint, graphqlHTTP({
     schema,
     graphiql: allowGraphiql,

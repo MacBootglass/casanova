@@ -1,4 +1,5 @@
-const mongooseConf = require('./config/mongoose');
-const expressConf = require('./config/express');
+const startMongoose = require('./config/mongoose');
+const startExpress = require('./config/express');
 
-mongooseConf().then(expressConf);
+startMongoose();
+startExpress();
