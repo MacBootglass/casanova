@@ -8,7 +8,8 @@ const tokenType = require('../types/token');
 const resolveToken = (_, { value }) =>
   Credential.findOne({
     'token.value': value,
-  }).then(res => res.token);
+  })
+  .then(res => res ? res.token : null);
 
 module.exports = {
   token: {

@@ -6,7 +6,7 @@ const signUp = (_, { email, password }) =>
   Credential.create({
     email,
     password,
-  }).then(credential => credential.token);
+  }).then(credential => credential ? credential.token : null);
 
 module.exports = {
   signUp: {

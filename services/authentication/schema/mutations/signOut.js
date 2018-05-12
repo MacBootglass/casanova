@@ -9,7 +9,7 @@ const signOut = (_, { email, password }) =>
   }).then(credential => {
     credential.set({ token: { expirationDate: new Date() } });
     return credential.save();
-  }).then(credential => credential.token);
+  }).then(credential => credential ? credential.token : null);
 
 module.exports = {
   signOut: {

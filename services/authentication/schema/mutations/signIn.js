@@ -9,7 +9,7 @@ const signIn = (_, { email, password }) =>
   }).then(credential => {
     credential.set({ token: {} });
     return credential.save();
-  }).then(credential => credential.token);
+  }).then(credential => credential ? credential.token : null);
 
 module.exports = {
   signIn: {
