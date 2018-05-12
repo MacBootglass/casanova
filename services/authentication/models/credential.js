@@ -12,9 +12,13 @@ const credential = mongoose.Schema({
     index: {
       unique: true,
     },
+    required: true,
     set: email => email.trim().toLowerCase(),
   },
-  password: String,
+  password: {
+    type: String,
+    required: true,
+  },
   token: {
     type: token,
   },
