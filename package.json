@@ -7,12 +7,14 @@
   "author": "Thibault Théologien <thibault.theologien@insa-rouen.fr>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint -c .eslintrc.yml *.js --quiet"
+    "lint": "eslint -c .eslintrc.yml *.js --quiet",
+    "start:authentication": "nodemon --watch services/authentication services/authentication/server.js"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0"
+    "eslint-plugin-import": "^2.11.0",
+    "nodemon": "^1.17.4"
   },
   "dependencies": {
     "dayjs": "^1.5.16",
