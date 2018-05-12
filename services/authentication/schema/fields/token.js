@@ -1,4 +1,7 @@
-const { GraphQLString } = require('graphql');
+const {
+  GraphQLString,
+  GraphQLNonNull,
+} = require('graphql');
 const { model: Credential } = require('../../models/credential');
 const tokenType = require('../types/token');
 
@@ -11,7 +14,7 @@ module.exports = {
   token: {
     type: tokenType,
     args: {
-      value: { type: GraphQLString }
+      value: { type: new GraphQLNonNull(GraphQLString) }
     },
     resolve: resolveToken,
   },

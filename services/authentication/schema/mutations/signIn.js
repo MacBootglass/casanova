@@ -1,6 +1,6 @@
-const { GraphQLString } = require('graphql');
 const { model: Credential } = require('../../models/credential');
 const tokenType = require('../types/token');
+const credentialInput = require('../inputs/credential');
 
 const signIn = (_, { email, password }) =>
   Credential.findOne({
@@ -14,10 +14,7 @@ const signIn = (_, { email, password }) =>
 module.exports = {
   signIn: {
     type: tokenType,
-    args: {
-      email: { type: GraphQLString },
-      password: { type: GraphQLString },
-    },
+    args: credentialInput,
     resolve: signIn,
   },
 };

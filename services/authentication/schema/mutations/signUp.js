@@ -1,6 +1,6 @@
-const { GraphQLString } = require('graphql');
 const { model: Credential } = require('../../models/credential');
 const tokenType = require('../types/token');
+const credentialInput = require('../inputs/credential');
 
 const signUp = (_, { email, password }) =>
   Credential.create({
@@ -11,10 +11,7 @@ const signUp = (_, { email, password }) =>
 module.exports = {
   signUp: {
     type: tokenType,
-    args: {
-      email: { type: GraphQLString },
-      password: { type: GraphQLString },
-    },
+    args: credentialInput,
     resolve: signUp,
   },
 };
