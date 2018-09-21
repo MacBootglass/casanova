@@ -62,3 +62,6 @@ typings/
 
 # Docker volumes
 runtime
+
+# Other
+.DS_Store
