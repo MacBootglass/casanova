@@ -6,7 +6,7 @@ const {
 } = require('./env');
 
 module.exports = () => {
-  const schema = require('../schema');
+  const schema = require('../schema'); // eslint-disable-line global-require
   const graphqlEndpoint = '/graphql';
   const app = express();
 

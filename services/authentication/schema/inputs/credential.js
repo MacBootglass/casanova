@@ -5,9 +5,9 @@ const {
 
 module.exports = {
   email: {
-    type: new GraphQLNonNull(GraphQLString)
+    type: new GraphQLNonNull(GraphQLString),
   },
   password: {
-    type: new GraphQLNonNull(GraphQLString)
+    type: new GraphQLNonNull(GraphQLString),
   },
 };

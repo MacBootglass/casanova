@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const { schema: token } = require('./token');
 
-const _exports = () => ({
-  model: mongoose.model('Credential', credential),
-  schema: credential,
-});
-
 const credential = new mongoose.Schema({
   email: {
     type: String,
@@ -29,4 +24,7 @@ const credential = new mongoose.Schema({
   },
 });
 
-module.exports = _exports();
+module.exports = {
+  model: mongoose.model('Credential', credential),
+  schema: credential,
+};

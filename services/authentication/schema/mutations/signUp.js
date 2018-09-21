@@ -3,10 +3,12 @@ const tokenType = require('../types/token');
 const credentialInput = require('../inputs/credential');
 
 const signUp = (_, { email, password }) =>
-  Credential.create({
-    email,
-    password,
-  }).then(credential => credential ? credential.token : null);
+  Credential
+    .create({
+      email,
+      password,
+    })
+    .then(credential => (credential ? credential.token : null));
 
 module.exports = {
   signUp: {

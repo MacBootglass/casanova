@@ -2,5 +2,6 @@
   "extends": "airbnb-base",
   "rules": {
     "implicit-arrow-linebreak": "off",
+    "no-underscore-dangle": "off"
   }
 }

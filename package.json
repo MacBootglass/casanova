@@ -7,7 +7,7 @@
   "author": "Thibault Théologien <thibault.theologien@insa-rouen.fr>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint -c .eslintrc.yml *.js --quiet",
+    "lint": "eslint . --quiet",
     "start:authentication": "nodemon --watch services/authentication services/authentication/server.js"
   },
   "devDependencies": {
