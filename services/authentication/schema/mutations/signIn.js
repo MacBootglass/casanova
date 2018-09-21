@@ -6,10 +6,10 @@ const signIn = (_, { email, password }) =>
   Credential.findOne({
     email,
     password,
-  }).then(credential => {
+  }).then((credential) => {
     credential.set({ token: {} });
     return credential.save();
-  }).then(credential => credential ? credential.token : null);
+  }).then(credential => (credential ? credential.token : null));
 
 module.exports = {
   signIn: {
