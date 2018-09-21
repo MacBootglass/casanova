@@ -17,8 +17,8 @@ module.exports = () => {
   app.listen(service.port, service.host);
 
   if (allowGraphiql) {
-    console.log(`Service ${service.name} with GraphQL API is running on http://${service.host}:${service.port}${graphqlEndpoint}`);
+    logger.info(`Service ${service.name} with GraphQL API is running on http://${service.host}:${service.port}${graphqlEndpoint}`);
   } else {
-    console.log(`Service ${service.name} is running on http://${service.host}:${service.port}`);
+    logger.info(`Service ${service.name} is running on http://${service.host}:${service.port}`);
   }
 };

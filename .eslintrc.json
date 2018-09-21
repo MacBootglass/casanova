@@ -3,5 +3,8 @@
   "rules": {
     "implicit-arrow-linebreak": "off",
     "no-underscore-dangle": "off"
+  },
+  "globals": {
+    "logger": true
   }
 }
