@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   mongo:
-    image: mongo:3.7.7-jessie
+    image: mongo:3.7.9-jessie
     volumes:
       - ./runtime/mongo/data/db:/data/db
       - ./runtime/mongo/data/configdb:/data/configdb
