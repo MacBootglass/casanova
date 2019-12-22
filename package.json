@@ -11,7 +11,7 @@
     "start:authentication": "nodemon --watch services/authentication services/authentication/server.js"
   },
   "devDependencies": {
-    "eslint": "5.6.0",
+    "eslint": "6.8.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
     "nodemon": "1.18.4"
