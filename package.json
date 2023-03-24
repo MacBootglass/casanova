@@ -14,7 +14,7 @@
     "eslint": "5.6.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
-    "nodemon": "1.18.4"
+    "nodemon": "2.0.22"
   },
   "dependencies": {
     "dayjs": "1.7.5",
